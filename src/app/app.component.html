@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <h3 class="title is-3 has-text-centered">The awesome todo app</h3>
+    </div>
+  </div>
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <form #todoForm="ngForm" (ngSubmit)="submitForm(todoForm.value)">
+        <div class="field has-addons">
+          <div class="control">
+            <input
+              class="input is-large"
+              type="text"
+              name="todo"
+              placeholder="type a task"
+              aria-label="type a task"
+              aria-describedby="todo"
+              #todo
+              ngModel
+            />
+          </div>
+          <div class="control">
+            <input
+              type="submit"
+              class="button is-primary is-large"
+              value="add"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <ul class="list-instyled list-group has-background-primary">
+        <li class="list-group-item" *ngFor="let todo of todoList">
+          {{todo}}
+          <a class="button is-rounded" (click)="deleteTask(todo)">
+            <span class="icon"> <i class="fas fa-trash"></i></span
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
